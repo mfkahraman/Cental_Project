@@ -7,12 +7,7 @@ using System.Threading.Tasks;
 
 namespace Cental.BusinessLayer.Abstract
 {
-    public interface IGenericService<T> where T: BaseEntity
+    public interface IBrandService : IGenericService<Brand>
     {
-        List<T> TGetAll();
-        T TGetById(int id);
-        void TDelete(int id);
-        void TCreate(T entity);
-        void TUpdate(T entity);
     }
 }
