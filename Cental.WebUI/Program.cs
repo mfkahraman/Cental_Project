@@ -22,8 +22,7 @@ builder.Services.AddScoped<IBannerDal, EfBannerDal>();
 builder.Services.AddScoped<IBrandService, BrandManager>();
 builder.Services.AddScoped<IBrandDal, EfBrandDal>();
 
-builder.Services.AddScoped(typeof(IGenericDal<>), typeof(GenericRepository<>));
-builder.Services.AddScoped(typeof(IGenericService<>), typeof(GenericManager<>));
+
 
 builder.Services.AddControllersWithViews();
 

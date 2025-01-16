@@ -9,10 +9,38 @@ using System.Threading.Tasks;
 
 namespace Cental.BusinessLayer.Concrete
 {
-    public class BrandManager : GenericManager<Brand>, IBrandService
+    public class BrandManager : IBrandService
     {
-        public BrandManager(IGenericDal<Brand> genericDal) : base(genericDal)
+        private readonly IBrandDal _brandDal;
+
+        public BrandManager(IBrandDal brandDal)
         {
+            _brandDal = brandDal;
+        }
+
+        public void TCreate(Brand entity)
+        {
+           _brandDal.Create(entity);
+        }
+
+        public void TDelete(int id)
+        {
+            _brandDal.Delete(id);
+        }
+
+        public List<Brand> TGetAll()
+        {
+            return _brandDal.GetAll();
+        }
+
+        public Brand TGetById(int id)
+        {
+            return _brandDal.GetById(id);
+        }
+
+        public void TUpdate(Brand entity)
+        {
+            _brandDal.Update(entity);
         }
     }
 }
