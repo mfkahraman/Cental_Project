@@ -17,6 +17,7 @@ namespace Cental.EntityLayer.Entities
         public int Year { get; set; }
         public string Transmission { get; set; }
         public int Kilometer { get; set; }
+        public decimal Price { get; set; }
         public int BrandId { get; set; }
         public Brand Brand { get; set; } //navigation property
         public List<Review> Reviews { get; set; }
