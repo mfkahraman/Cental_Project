@@ -8,11 +8,15 @@ using FluentValidation.AspNetCore;
 using FluentValidation;
 using Cental.BusinessLayer.Validators;
 using Cental.BusinessLayer.Extensions;
+using Cental.EntityLayer.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<CentalContext>();
+
+//Because we established Identity, we need to add the following line
+builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<CentalContext>();
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
