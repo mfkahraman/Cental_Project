@@ -12,10 +12,10 @@ namespace Cental.EntityLayer.Entities
         public string ModelName { get; set; }
         public string? ImageUrl { get; set; }
         public int SeatCount { get; set; }
-        public string ShiftType { get; set; }
         public string GasType { get; set; }
         public int Year { get; set; }
         public string Transmission { get; set; }
+        public string GearType { get; set; }
         public int Kilometer { get; set; }
         public decimal Price { get; set; }
         public int BrandId { get; set; }
