@@ -4,9 +4,11 @@ using Cental.EntityLayer.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection;
 using System;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Cental.WebUI.Controllers
 {
+    [Authorize]
     public class AdminAboutController : Controller
     {
         private readonly IAboutService _aboutService;

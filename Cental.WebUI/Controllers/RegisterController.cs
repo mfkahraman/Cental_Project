@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using Cental.DtoLayer.UserDtos;
 using Cental.EntityLayer.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cental.WebUI.Controllers
 {
+    [AllowAnonymous]
     //Because we installed the Identity package, we need to inject the UserManager class into the controller which has user related operations.
     public class RegisterController(UserManager<AppUser> userManager, IMapper mapper) : Controller
     {
@@ -31,7 +33,7 @@ namespace Cental.WebUI.Controllers
             {
                 foreach (var error in result.Errors)
                 {
-                    ModelState.AddModelError(error.Code, error.Description);
+                    ModelState.AddModelError(string.Empty, error.Description);
                 }
                 return View(model);
             }

@@ -9,6 +9,7 @@ using FluentValidation;
 using Cental.BusinessLayer.Validators;
 using Cental.BusinessLayer.Extensions;
 using Cental.EntityLayer.Entities;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +17,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<CentalContext>();
 
 //Because we established Identity, we need to add the following line
-builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<CentalContext>();
+builder.Services.AddIdentity<AppUser, AppRole>(cfg =>
+{
+    cfg.User.RequireUniqueEmail = true;
+})
+                .AddEntityFrameworkStores<CentalContext>()
+                .AddErrorDescriber<CustomErrorDescriber>();
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
@@ -26,7 +32,17 @@ builder.Services.AddFluentValidationAutoValidation()
     .AddFluentValidationClientsideAdapters()
     .AddValidatorsFromAssemblyContaining<BrandValidator>();
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(option=>
+{
+    option.Filters.Add(new AuthorizeFilter());
+});
+
+//We added the lines below to identify the login route and logout route. Otherwise, the system will use Account/Login as the default.
+builder.Services.ConfigureApplicationCookie(cfg =>
+{
+    cfg.LoginPath = "/Login/Index";
+    cfg.LogoutPath = "/Login/Logout";
+});
 
 var app = builder.Build();
 
@@ -43,7 +59,9 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
+app.UseAuthentication(); //We added this line to enable the authentication process for  checking the user's identity.
+
+app.UseAuthorization(); //This line checks whether the user is authorized to access the requested page.
 
 app.MapControllerRoute(
     name: "default",
