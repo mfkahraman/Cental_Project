@@ -27,13 +27,26 @@ namespace Cental.WebUI.Controllers
             if(isPasswordTrue)
             {
                 if(model.ImageFile != null)
-                { 
-                    model.ImageUrl = await imageService.SaveImageAsync(model.ImageFile);
+                {
+                    try
+                    {
+                        model.ImageUrl = await imageService.SaveImageAsync(model.ImageFile);
+                    }
+                    catch (Exception ex)
+                    {
+                        ModelState.AddModelError("", ex.Message);
+                        return View(model);
+                    }
+                    
                 }
 
-                var updatedUser = model.Adapt<AppUser>();
+                user.Email = model.Email;
+                user.FirstName = model.FirstName;
+                user.LastName = model.LastName;
+                user.PhoneNumber = model.PhoneNumber;
+                user.ImageUrl = model.ImageUrl;
 
-                var result = await userManager.UpdateAsync(updatedUser);
+                var result = await userManager.UpdateAsync(user);
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Index","AdminAbout");
