@@ -42,6 +42,7 @@ builder.Services.ConfigureApplicationCookie(cfg =>
 {
     cfg.LoginPath = "/Login/Index";
     cfg.LogoutPath = "/Login/Logout";
+    cfg.AccessDeniedPath = "/ErrorPage/AccessDenied";
 });
 
 var app = builder.Build();
@@ -56,6 +57,9 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+//Added below line to redirect to the NotFound404 page when a 404 error occurs.
+app.UseStatusCodePagesWithReExecute("/ErrorPage/NotFound404");
 
 app.UseRouting();
 

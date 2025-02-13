@@ -2,10 +2,12 @@
 using Cental.BusinessLayer.Abstract;
 using Cental.DtoLayer.BannerDtos;
 using Cental.EntityLayer.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cental.WebUI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     //.NET 8 ie gelen primary constructor özelliği ile aşağıdaki şekilde constructor oluşturabiliyoruz
     public class AdminBannerController(IBannerService _bannerService, IMapper _mapper) : Controller
     {
