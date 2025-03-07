@@ -32,7 +32,7 @@ builder.Services.AddFluentValidationAutoValidation()
     .AddFluentValidationClientsideAdapters()
     .AddValidatorsFromAssemblyContaining<BrandValidator>();
 
-builder.Services.AddControllersWithViews(option=>
+builder.Services.AddControllersWithViews(option =>
 {
     option.Filters.Add(new AuthorizeFilter());
 });
@@ -70,5 +70,13 @@ app.UseAuthorization(); //This line checks whether the user is authorized to acc
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+//We added the line below to define the route for the areas.
+app.MapControllerRoute(
+  name: "areas",
+  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+);
+
+
 
 app.Run();
