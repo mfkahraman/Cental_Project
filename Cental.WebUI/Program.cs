@@ -67,15 +67,18 @@ app.UseAuthentication(); //We added this line to enable the authentication proce
 
 app.UseAuthorization(); //This line checks whether the user is authorized to access the requested page.
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
-
 //We added the line below to define the route for the areas.
+//MapControllar of area should be at top, because it checks if area exists
 app.MapControllerRoute(
   name: "areas",
   pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
 );
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Default}/{action=Index}/{id?}");
+
+
 
 
 

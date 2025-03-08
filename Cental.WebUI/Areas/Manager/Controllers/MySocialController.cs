@@ -37,6 +37,12 @@ namespace Cental.WebUI.Areas.Manager.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult DeleteSocial(int id)
+        {
+            _userSocialService.TDelete(id);
+            return RedirectToAction("Index");
+        }
+
 
     }
 }
