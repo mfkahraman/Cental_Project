@@ -1,4 +1,5 @@
-﻿using Cental.DtoLayer.UserDtos;
+﻿using AutoMapper;
+using Cental.DtoLayer.UserDtos;
 using Cental.EntityLayer.Entities;
 using Mapster;
 using Microsoft.AspNetCore.Identity;
@@ -7,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace Cental.WebUI.ViewComponents.Default
 {
-    public class _DefaultManagerComponent(UserManager<AppUser> _userManager) : ViewComponent
+    public class _DefaultManagerComponent(UserManager<AppUser> userManager, IMapper mapper) : ViewComponent
     {
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var managers = await _userManager.GetUsersInRoleAsync("Manager");
-            var dto = managers.Adapt<IList<ResultUserDto>>();
+            var managers = await userManager.GetUsersInRoleAsync("Manager");
+            var dto = mapper.Map<List<ResultUserDto>>(managers);
             return View(dto.TakeLast(4).ToList());
         }
     }

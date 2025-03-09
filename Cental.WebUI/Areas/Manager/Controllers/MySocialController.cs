@@ -26,7 +26,9 @@ namespace Cental.WebUI.Areas.Manager.Controllers
         {
             return View();
         }
-
+        //Eklerken social medya adını combobox yap, seçilen comboboxa göre iconu controllerdan ata.
+        //fab fa-facebook-f, fab fa-twitter, fab fa-instagram, fab fa-linkedin-in
+        //ekstra lazım olursa fab fa-youtube, fab fa-github
         [HttpPost]
         public async Task<IActionResult> CreateSocial(CreateUserSocialDto model)
         {

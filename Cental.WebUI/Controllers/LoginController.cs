@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Cental.WebUI.Controllers
 {
     [AllowAnonymous]
-    public class LoginController(SignInManager<AppUser> signInManager) : Controller
+    public class LoginController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager) : Controller
     {
         public async Task<IActionResult> Index()
         {
@@ -30,7 +30,26 @@ namespace Cental.WebUI.Controllers
                 return Redirect(returnUrl);
             }
 
-            return RedirectToAction("Index", "AdminAbout");
+            var user = await userManager.FindByNameAsync(model.UserName);
+
+            var userRoles = await userManager.GetRolesAsync(user);
+
+            if (userRoles.Contains("Admin"))
+            {
+                return RedirectToAction("Index", "AdminAbout");
+            }
+
+            else if (userRoles.Contains("Manager"))
+            {
+                return RedirectToAction("Index", "MySocial", new {area="Manager"});
+            }
+
+            else if (userRoles.Contains("User"))
+            {
+                return RedirectToAction("Index", "MyProfile", new {area="User"});
+            }
+
+            return RedirectToAction("Index", "Default");
         }
 
         public async Task<IActionResult> Logout()
