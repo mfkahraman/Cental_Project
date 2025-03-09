@@ -8,9 +8,7 @@ namespace Cental.DtoLayer.Enums
 {
     public enum Transmissions
     {
-        Beş_ileri,
-        Altı_ileri,
-        Yedi_ileri,
-        Sekiz_ileri
+        Manuel,
+        Otomatik
     }
 }

@@ -1,0 +1,43 @@
+﻿
+@*
+    CarFilterCars Component
+*@
+
+<form class="filter-form mb-4" asp-action="FilterCars" asp-controller="Car" method="post">
+    <div class="container mt-4">
+        <div class="row g-3">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <select class="form-control" asp-items="@ViewBag.brands" name="brand">
+                        <option selected disabled>Marka Seçin</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <select class="form-control" name="gas" asp-items="@ViewBag.gasTypes">
+                        <option selected disabled>Yakıt Seçin</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <select class="form-control" name="gear" asp-items="@ViewBag.gearTypes">
+                        <option selected disabled>Vites Seçin</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <input type="number" name="year" class="form-control" placeholder="En Düşük Model Yılı">
+                </div>
+            </div>
+            <div class="col-md-1 d-flex align-items-center">
+                <button class="btn btn-danger w-100" type="submit">Filtrele</button>
+            </div>
+        </div>
+    </div>
+</form>

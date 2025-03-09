@@ -8,8 +8,15 @@ namespace Cental.DtoLayer.Enums
 {
     public enum GearTypes
     {
-        Otomatik,
-        Triptonic,
-        Manuel
+        DCT,
+        Tronic,
+        CVT,
+        DSG,
+        Düz,
+        e_CVT,
+        EDC,
+        Steptronic,
+        S_Tronic,
+        Tek_vites
     }
 }
