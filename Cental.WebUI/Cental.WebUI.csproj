@@ -7,6 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Manager\Data\**" />
+    <Compile Remove="Areas\Manager\Models\**" />
+    <Content Remove="Areas\Manager\Data\**" />
+    <Content Remove="Areas\Manager\Models\**" />
+    <EmbeddedResource Remove="Areas\Manager\Data\**" />
+    <EmbeddedResource Remove="Areas\Manager\Models\**" />
+    <None Remove="Areas\Manager\Data\**" />
+    <None Remove="Areas\Manager\Models\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.11">
       <PrivateAssets>all</PrivateAssets>
@@ -21,8 +32,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Manager\Data\" />
-    <Folder Include="Areas\Manager\Models\" />
+    <Folder Include="Areas\User\Data\" />
+    <Folder Include="Areas\User\Models\" />
+    <Folder Include="Areas\User\Views\" />
   </ItemGroup>
 
 </Project>

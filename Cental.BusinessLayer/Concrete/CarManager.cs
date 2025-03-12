@@ -1,6 +1,9 @@
 ﻿using Cental.BusinessLayer.Abstract;
 using Cental.DataAccessLayer.Abstract;
+using Cental.DtoLayer.BookingDtos;
+using Cental.DtoLayer.CarDtos;
 using Cental.EntityLayer.Entities;
+using Mapster;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,40 +12,42 @@ using System.Threading.Tasks;
 
 namespace Cental.BusinessLayer.Concrete
 {
-    public class CarManager (ICarDal _carDal): ICarService
+    public class CarManager (ICarDal carDal): ICarService
     {
-
-        public void TCreate(Car entity)
+        public void TCreate(CreateCarDto dto)
         {
-            _carDal.Create(entity);
+            var entity = dto.Adapt<Car>();
+            carDal.Create(entity);
         }
 
         public void TDelete(int id)
         {
-            _carDal.Delete(id);
+            carDal.Delete(id);
         }
 
-        public List<Car> TGetAll()
+        public List<ResultCarDto> TGetAll()
         {
-            var values=_carDal.GetAll();
-            return values;
-
+            var entities = carDal.GetAll();
+            return entities.Adapt<List<ResultCarDto>>();
         }
 
-        public Car TGetById(int id)
+        public ResultCarDto TGetById(int id)
         {
-            var car = _carDal.GetById(id);
-            return car;
+            var entity = carDal.GetById(id);
+            return entity.Adapt<ResultCarDto>();
         }
 
-        public List<Car> TGetCarsWithBrands()
+        public void TUpdate(UpdateCarDto dto)
         {
-            return _carDal.GetCarsWithBrands();
+            var entity = dto.Adapt<Car>();
+            carDal.Update(entity);
         }
 
-        public void TUpdate(Car entity)
+
+        List<ResultCarDto> ICarService.TGetCarsWithBrands()
         {
-            _carDal.Update(entity);
+            var entities = carDal.GetCarsWithBrands();
+            return entities.Adapt<List<ResultCarDto>>();
         }
     }
 }
