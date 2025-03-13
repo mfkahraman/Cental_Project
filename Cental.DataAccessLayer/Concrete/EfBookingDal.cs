@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Cental.DataAccessLayer.Concrete
 {
-    class EfBookingDal : GenericRepository<Booking>, IBookingDal
+    public class EfBookingDal : GenericRepository<Booking>, IBookingDal
     {
         public EfBookingDal(CentalContext context) : base(context)
         {

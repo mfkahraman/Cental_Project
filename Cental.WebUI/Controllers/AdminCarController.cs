@@ -44,8 +44,7 @@ namespace Cental.WebUI.Controllers
         {
             GetValuesInDropDown();
 
-            var newCar = _mapper.Map<Car>(model);
-            _carService.TCreate(newCar);
+            _carService.TCreate(model);
 
             return RedirectToAction("Index");
         }

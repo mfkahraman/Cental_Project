@@ -1,9 +1,9 @@
-﻿using Cental.BusinessLayer.Abstract;
+﻿using AutoMapper;
+using Cental.BusinessLayer.Abstract;
 using Cental.DataAccessLayer.Abstract;
 using Cental.DtoLayer.BookingDtos;
 using Cental.DtoLayer.CarDtos;
 using Cental.EntityLayer.Entities;
-using Mapster;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +12,11 @@ using System.Threading.Tasks;
 
 namespace Cental.BusinessLayer.Concrete
 {
-    public class CarManager (ICarDal carDal): ICarService
+    public class CarManager (ICarDal carDal, IMapper mapper): ICarService
     {
         public void TCreate(CreateCarDto dto)
         {
-            var entity = dto.Adapt<Car>();
+            var entity = mapper.Map<Car>(dto);
             carDal.Create(entity);
         }
 
@@ -28,18 +28,18 @@ namespace Cental.BusinessLayer.Concrete
         public List<ResultCarDto> TGetAll()
         {
             var entities = carDal.GetAll();
-            return entities.Adapt<List<ResultCarDto>>();
+            return mapper.Map<List<ResultCarDto>>(entities);
         }
 
         public ResultCarDto TGetById(int id)
         {
             var entity = carDal.GetById(id);
-            return entity.Adapt<ResultCarDto>();
+            return mapper.Map<ResultCarDto>(entity);
         }
 
         public void TUpdate(UpdateCarDto dto)
         {
-            var entity = dto.Adapt<Car>();
+            var entity = mapper.Map<Car>(dto);
             carDal.Update(entity);
         }
 
@@ -47,7 +47,7 @@ namespace Cental.BusinessLayer.Concrete
         List<ResultCarDto> ICarService.TGetCarsWithBrands()
         {
             var entities = carDal.GetCarsWithBrands();
-            return entities.Adapt<List<ResultCarDto>>();
+            return mapper.Map<List<ResultCarDto>>(entities);
         }
     }
 }

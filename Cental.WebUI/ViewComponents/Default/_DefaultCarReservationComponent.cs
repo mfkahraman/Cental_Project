@@ -13,10 +13,10 @@ namespace Cental.WebUI.ViewComponents.Default
             _carService = carService;
         }
 
-        public IViewComponentResult InvokeAsync()
+        public IViewComponentResult Invoke()
         {
-            ViewBag.Cars = _carService.TGetAll();
-            return View();
+            var values = _carService.TGetCarsWithBrands();
+            return View(values);
         }
     }
 }

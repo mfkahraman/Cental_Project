@@ -19,5 +19,9 @@ namespace Cental.DtoLayer.CarDtos
         public int Kilometer { get; set; }
         public decimal Price { get; set; }
         public int BrandId { get; set; }
+
+        //For eager load brands
+        public string BrandName { get; set; }
+
     }
 }

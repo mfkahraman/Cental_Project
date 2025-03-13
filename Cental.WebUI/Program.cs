@@ -24,7 +24,9 @@ builder.Services.AddIdentity<AppUser, AppRole>(cfg =>
                 .AddEntityFrameworkStores<CentalContext>()
                 .AddErrorDescriber<CustomErrorDescriber>();
 
-builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+//builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+// AutoMapper setup for all assemblies
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddServiceRegistrations();
 
