@@ -15,7 +15,7 @@ namespace Cental.WebUI.ViewComponents.Default
 
         public IViewComponentResult Invoke()
         {
-            var values = _carService.TGetCarsWithBrands();
+            var values = _carService.TGetAll();
             return View(values);
         }
     }

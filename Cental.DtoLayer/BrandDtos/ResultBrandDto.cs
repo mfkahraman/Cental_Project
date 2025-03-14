@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cental.EntityLayer.Entities
+namespace Cental.DtoLayer.BrandDtos
 {
-    public class Brand : BaseEntity
+    public class ResultBrandDto
     {
         public int BrandId { get; set; }
         public string BrandName { get; set; }
-        public virtual List<Car>? Cars { get; set; }
     }
 }

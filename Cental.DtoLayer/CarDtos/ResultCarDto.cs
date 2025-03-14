@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cental.DtoLayer.BrandDtos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,8 +21,7 @@ namespace Cental.DtoLayer.CarDtos
         public decimal Price { get; set; }
         public int BrandId { get; set; }
 
-        //For eager load brands
-        public string BrandName { get; set; }
+        public ResultBrandDto Brand { get; set; }
 
     }
 }

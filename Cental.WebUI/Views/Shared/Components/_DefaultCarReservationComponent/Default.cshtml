@@ -18,27 +18,27 @@
                                     <form method="post" asp-area="User" asp-controller="Booking" asp-action="CreateReservation">
                                         <div class="row g-3">
                                             <div class="col-12">
-                                                <select class="form-select" aria-label="Default select example">
-                                                    <option selected>Kiralamayı talep ettiğiniz aracı seçiniz</option>
+                                                <select class="form-select" name="CarId" aria-label="Default select example">
+                                                    <option selected disabled>Kiralamayı talep ettiğiniz aracı seçiniz</option>
                                                     @foreach (var item in Model)
                                                     {
-                                                        <option value="@item.BrandName -item.CarId">@item.ModelName - @item.GearType</option>
+                                                        <option value="@item.CarId">@item.Brand.BrandName - @item.ModelName - @item.GearType</option>
                                                     }
                                                 </select>
                                             </div>
                                             <div class="col-12">
                                                 <div class="input-group">
                                                     <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                                                        <span class="fas fa-map-marker-alt"></span> <span class="ms-1">Pick Up</span>
+                                                        <span class="fas fa-map-marker-alt"></span> <span class="ms-1">Teslim Al</span>
                                                     </div>
                                                     <input class="form-control" type="text" placeholder="Enter a City or Airport" aria-label="Enter a City or Airport">
                                                 </div>
                                             </div>
                                             <div class="col-12">
-                                                <a href="#" class="text-start text-white d-block mb-2">Need a different drop-off location?</a>
+                                                <a href="#" class="text-start text-white d-block mb-2">Teslim etme noktası neresi olsun? (İl,İlçe)</a>
                                                 <div class="input-group">
                                                     <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                                                        <span class="fas fa-map-marker-alt"></span><span class="ms-1">Drop off</span>
+                                                        <span class="fas fa-map-marker-alt"></span><span class="ms-1">Teslim Et</span>
                                                     </div>
                                                     <input class="form-control" type="text" placeholder="Enter a City or Airport" aria-label="Enter a City or Airport">
                                                 </div>

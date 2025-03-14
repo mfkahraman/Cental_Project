@@ -28,7 +28,8 @@ namespace Cental.BusinessLayer.Concrete
         public List<ResultCarDto> TGetAll()
         {
             var entities = carDal.GetAll();
-            return mapper.Map<List<ResultCarDto>>(entities);
+            var dtos = mapper.Map<List<ResultCarDto>>(entities);
+            return dtos;
         }
 
         public ResultCarDto TGetById(int id)
