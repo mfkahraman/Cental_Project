@@ -13,7 +13,7 @@ namespace Cental.BusinessLayer.Mappings
     {
         public BrandMapping()
         {
-            CreateMap<Brand, ResultBrandDto>().ReverseMap();
+            CreateMap<Brand, ResultBrandDto>();
             CreateMap<Brand, CreateBrandDto>().ReverseMap();
             CreateMap<Brand, UpdateBrandDto>().ReverseMap();
         }

@@ -15,7 +15,7 @@
                             <div class="col-lg-6 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s;">
                                 <div class="bg-secondary rounded p-5">
                                     <h4 class="text-white mb-4">Araç Kiralama Talebi Oluştur</h4>
-                                    <form method="post" asp-area="User" asp-controller="Booking" asp-action="CreateReservation">
+                                    <form method="post" asp-area="User" asp-controller="Booking" asp-action="CreateBooking">
                                         <div class="row g-3">
                                             <div class="col-12">
                                                 <select class="form-select" name="CarId" aria-label="Default select example">
@@ -31,56 +31,38 @@
                                                     <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
                                                         <span class="fas fa-map-marker-alt"></span> <span class="ms-1">Teslim Al</span>
                                                     </div>
-                                                    <input class="form-control" type="text" placeholder="Enter a City or Airport" aria-label="Enter a City or Airport">
+                                                    <input class="form-control" name="PickupLocation" type="text" placeholder="İl, İlçe olarak giriniz" aria-label="İl, İlçe olarak giriniz.">
                                                 </div>
                                             </div>
                                             <div class="col-12">
-                                                <a href="#" class="text-start text-white d-block mb-2">Teslim etme noktası neresi olsun? (İl,İlçe)</a>
+                                                <a href="#" class="text-start text-white d-block mb-2">Teslim etme noktası neresi olsun?</a>
                                                 <div class="input-group">
                                                     <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
                                                         <span class="fas fa-map-marker-alt"></span><span class="ms-1">Teslim Et</span>
                                                     </div>
-                                                    <input class="form-control" type="text" placeholder="Enter a City or Airport" aria-label="Enter a City or Airport">
+                                                    <input class="form-control" name="DropoffLocation" type="text" placeholder="İl, İlçe olarak giriniz." aria-label="İl, İlçe olarak giriniz.">
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="input-group">
                                                     <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                                                        <span class="fas fa-calendar-alt"></span><span class="ms-1">Pick Up</span>
+                                                        <span class="fas fa-calendar-alt"></span><span class="ms-1">Teslim Alma</span>
                                                     </div>
-                                                    <input class="form-control" type="date">
-                                                    <select class="form-select ms-3" aria-label="Default select example">
-                                                        <option selected>12:00AM</option>
-                                                        <option value="1">1:00AM</option>
-                                                        <option value="2">2:00AM</option>
-                                                        <option value="3">3:00AM</option>
-                                                        <option value="4">4:00AM</option>
-                                                        <option value="5">5:00AM</option>
-                                                        <option value="6">6:00AM</option>
-                                                        <option value="7">7:00AM</option>
-                                                    </select>
+                                                    <input name="PickupDate" class="form-control" type="datetime-local">
+
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class="input-group">
                                                     <div class="d-flex align-items-center bg-light text-body rounded-start p-2">
-                                                        <span class="fas fa-calendar-alt"></span><span class="ms-1">Drop off</span>
+                                                        <span class="fas fa-calendar-alt"></span><span class="ms-1">Teslim Etme</span>
                                                     </div>
-                                                    <input class="form-control" type="date">
-                                                    <select class="form-select ms-3" aria-label="Default select example">
-                                                        <option selected>12:00AM</option>
-                                                        <option value="1">1:00AM</option>
-                                                        <option value="2">2:00AM</option>
-                                                        <option value="3">3:00AM</option>
-                                                        <option value="4">4:00AM</option>
-                                                        <option value="5">5:00AM</option>
-                                                        <option value="6">6:00AM</option>
-                                                        <option value="7">7:00AM</option>
-                                                    </select>
+                                                    <input name="DropoffDate" class="form-control" type="datetime-local">
+
                                                 </div>
                                             </div>
                                             <div class="col-12">
-                                                <button class="btn btn-light w-100 py-2">Book Now</button>
+                                                <button class="btn btn-light w-100 py-2">Kiralama Talebi Oluştur</button>
                                             </div>
                                         </div>
                                     </form>
@@ -88,8 +70,8 @@
                             </div>
                             <div class="col-lg-6 d-none d-lg-flex fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s;">
                                 <div class="text-start">
-                                    <h1 class="display-5 text-white">Get 15% off your rental Plan your trip now</h1>
-                                    <p>Treat yourself in USA</p>
+                                    <h1 class="display-5 text-white">Çok sayıda araç mı kiralayacaksınız?</h1>
+                                    <p>Detayları konuşmak için bizimle iletişime geçebilirsiniz.</p>
                                 </div>
                             </div>
                         </div>

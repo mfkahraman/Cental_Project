@@ -8,8 +8,6 @@ namespace Cental.DtoLayer.BookingDtos
 {
     public class CreateBookingDto
     {
-        public int BookingId { get; set; }
-
         public string PickupLocation { get; set; }
 
         public string DropoffLocation { get; set; }
