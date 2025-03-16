@@ -18,7 +18,7 @@ namespace Cental.DtoLayer.BookingDtos
 
         public string? Status { get; set; }
         public bool? IsCancel { get; set; }
-
+        public int UserId { get; set; }
         public int CarId { get; set; }
     }
 }

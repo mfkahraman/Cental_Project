@@ -1,13 +1,15 @@
 ﻿using Cental.BusinessLayer.Abstract;
 using Cental.DtoLayer.BookingDtos;
+using Cental.EntityLayer.Entities;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cental.WebUI.Areas.User.Controllers
 {
     [Area("User")]
     [AllowAnonymous]
-    public class BookingController(IBookingService bookingService) : Controller
+    public class BookingController(IBookingService bookingService, UserManager<AppUser> userManager) : Controller
     {
         public IActionResult Index()
         {
@@ -15,14 +17,29 @@ namespace Cental.WebUI.Areas.User.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateBooking (CreateBookingDto dto)
+        public async Task<IActionResult> CreateBooking(CreateBookingDto dto)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Json(new { success = false, message = "Kiralama talebi oluşturmak için giriş yapmalısınız. Sizi giriş sayfasına yönlendiriyorum." });
+            }
+
+            var user = await userManager.FindByNameAsync(User.Identity.Name);
+            if (user == null)
+            {
+                return RedirectToAction("Index", "Login", new { area = "" });
+            }
+
+            dto.UserId = user.Id;
             dto.Status = "Onay Bekliyor";
             dto.IsCancel = false;
             bookingService.TCreate(dto);
-            TempData["SuccessMessage"] = "Kiralama talebiniz başarıyla oluşturuldu. Talebinizi inceledikteb sonra size bilgi vereceğiz. Taleplerim sekmesinden kontrol edebilirsiniz";
-            return RedirectToAction("Index", "Default", new { area = "" });
 
+            return Json(new { success = true, message = "Kiralama talebiniz başarıyla oluşturuldu!" });
         }
+
+
+
+
     }
 }

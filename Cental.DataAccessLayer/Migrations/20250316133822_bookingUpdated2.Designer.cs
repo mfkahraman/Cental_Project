@@ -4,6 +4,7 @@ using Cental.DataAccessLayer.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cental.DataAccessLayer.Migrations
 {
     [DbContext(typeof(CentalContext))]
-    partial class CentalContextModelSnapshot : ModelSnapshot
+    [Migration("20250316133822_bookingUpdated2")]
+    partial class bookingUpdated2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -598,7 +601,7 @@ namespace Cental.DataAccessLayer.Migrations
                         .IsRequired();
 
                     b.HasOne("Cental.EntityLayer.Entities.AppUser", "User")
-                        .WithMany("Bookings")
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -694,8 +697,6 @@ namespace Cental.DataAccessLayer.Migrations
 
             modelBuilder.Entity("Cental.EntityLayer.Entities.AppUser", b =>
                 {
-                    b.Navigation("Bookings");
-
                     b.Navigation("UserSocials");
                 });
 

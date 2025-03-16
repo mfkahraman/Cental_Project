@@ -62,7 +62,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-12">
-                                                <button class="btn btn-light w-100 py-2">Kiralama Talebi Oluştur</button>
+                                                <button type="button" class="btn btn-light w-100 py-2" id="bookingButton">Kiralama Talebi Oluştur</button>
                                             </div>
                                         </div>
                                     </form>
@@ -81,3 +81,77 @@
         </div>
     </div>
 </div>
+
+<script>
+
+     document.getElementById("bookingButton").addEventListener("click", function () {
+        Swal.fire({
+            title: "Kiralama talebini oluşturmak istiyor musunuz?",
+            text: "Talebiniz incelendikten sonra size geri dönüş yapılacaktır.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Evet, oluştur!",
+            cancelButtonText: "Hayır, iptal et"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Form verisini al
+                const formData = new FormData(document.querySelector("form"));
+
+                // AJAX ile backend'e istek gönder
+                $.ajax({
+                    type: "POST",
+                    url: "/User/Booking/CreateBooking",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+                        if (response.success) {
+                            Swal.fire({
+                                title: "Başarılı!",
+                                text: response.message,
+                                icon: "success",
+                                showConfirmButton: false,
+                                timer: 2000
+                            }).then(() => {
+                                // Kiralama talebi başarılı ise anasayfaya yönlendir
+                                window.location.href = "/Default/Index"; // Veya istediğiniz başka bir sayfa
+                            });
+                        } else {
+                            Swal.fire({
+                                title: "Uyarı!",
+                                text: response.message,
+                                icon: "warning",
+                            }).then(() => {
+                                // Kullanıcıyı login sayfasına yönlendir
+                                if (response.message.includes("giriş yapmalısınız")) {
+                                    window.location.href = "/Login/Index"; // Login sayfasının URL'si
+                                }
+                            });
+                        }
+                    },
+                    error: function () {
+                        Swal.fire({
+                            title: "Hata!",
+                            text: "Bir hata oluştu, lütfen tekrar deneyin.",
+                            icon: "error"
+                        });
+                    }
+                });
+            } else {
+                Swal.fire({
+                    title: "İptal Edildi",
+                    text: "Kiralama talebi oluşturulmadı.",
+                    icon: "error",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        });
+    });
+
+
+</script>
+
+
+
+

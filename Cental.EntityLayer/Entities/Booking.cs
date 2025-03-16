@@ -28,6 +28,9 @@ namespace Cental.EntityLayer.Entities
         public bool? IsCancel { get; set; }
 
         public int CarId { get; set; }
+        public int UserId { get; set; }
+
+        public virtual AppUser User { get; set; }
 
         public virtual Car Car { get; set; }
 
