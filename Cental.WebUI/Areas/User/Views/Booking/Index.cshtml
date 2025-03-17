@@ -16,6 +16,7 @@
         <th>Teslim Etme Lokasyonu</th>
         <th>Teslim Alma Tarihi</th>
         <th>Teslim Etme Tarihi</th>
+        <th>Durumu</th>
         <th>İşlemler</th>
     </tr>
     @foreach (var item in Model)
@@ -25,10 +26,14 @@
             <td>@count</td>
             <td>@item.PickupLocation</td>
             <td>@item.DropoffLocation</td>
-            <td>@item.PickupDate</td>
-            <td>@item.DropoffDate</td>
+            <td>@item.PickupDate.ToString("dd MMMM yyyy HH:00")</td>
+            <td>@item.DropoffDate.ToString("dd MMMM yyyy HH:00")</td>
+            <td>@item.Status</td>
             <td>
-                <button onclick="cancelBooking(@item.BookingId)" class="btn btn-danger">İptal Et</button>
+                @if (item.IsCancel == false)
+                {
+                    <button onclick="cancelBooking(@item.BookingId)" class="btn btn-danger">İptal Et</button>
+                }
             </td>
         </tr>
     }

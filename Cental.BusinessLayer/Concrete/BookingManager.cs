@@ -13,6 +13,17 @@ namespace Cental.BusinessLayer.Concrete
 {
     class BookingManager( IBookingDal bookingDal) : IBookingService
     {
+        public void TCancelByUser(int id)
+        {
+            var booking = bookingDal.GetById(id);
+            if (booking != null)
+            {
+                booking.Status = "Kullanıcı tarafından iptal edildi";
+                booking.IsCancel = true;
+                bookingDal.Update(booking);
+            }
+        }
+
         public void TCreate(CreateBookingDto dto)
         {
             var entity = dto.Adapt<Booking>();

@@ -46,8 +46,7 @@ namespace Cental.WebUI.Controllers
 
             else if (userRoles.Contains("User"))
             {
-                //return RedirectToAction("Index", "MyProfile", new {area="User"});
-                return RedirectToAction("Index", "Default");
+                return RedirectToAction("Index", "Booking", new {area="User"});
 
             }
 

@@ -15,5 +15,6 @@ namespace Cental.BusinessLayer.Abstract
         void TDelete(int id);
         void TCreate(CreateBookingDto dto);
         void TUpdate(UpdateBookingDto dto);
+        void TCancelByUser(int id);
     }
 }

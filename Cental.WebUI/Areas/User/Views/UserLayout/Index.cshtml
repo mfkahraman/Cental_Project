@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     // User Layout
     Layout = null;
 }
@@ -7,7 +8,7 @@
 <html lang="en">
 
 <head>
-    <title>Cental Manager Paneli</title>
+    <title>Kullanıcı Paneli</title>
     <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 11]>
@@ -48,15 +49,15 @@
 
                 <div class="">
                     <div class="main-menu-header">
-                        <img class="img-radius" src="managerimageurl" alt="User-Profile-Image">
-                        <div class="user-details">
-                            <span>Manager Name Surname</span>
-                            <div id="more-details">Admin<i class="fa fa-chevron-down m-l-5"></i></div>
+@*                         <img class="img-radius" src="" alt="User-Profile-Image">
+ *@                        <div class="user-details">
+@*                             <span>User</span>
+ *@                            <div id="more-details">Rol : Kullanıcı<i class="fa fa-chevron-down m-l-5"></i></div>
                         </div>
                     </div>
                     <div class="collapse" id="nav-user-link">
                         <ul class="list-unstyled">
-                            <li class="list-group-item"><a href="/Manager/Profile/Index"><i class="feather icon-user m-r-5"></i>Profil Bilgileri</a></li>
+                            <li class="list-group-item"><a href="/User/Profile/Index"><i class="feather icon-user m-r-5"></i>Profil Bilgileri</a></li>
                             <li class="list-group-item"><a href="/Default/Index"><i class="feather icon-settings m-r-5"></i>Siteye Git</a></li>
                             <li class="list-group-item"><a href="/Login/Logout"><i class="feather icon-log-out m-r-5"></i>Çıkış Yap</a></li>
                         </ul>

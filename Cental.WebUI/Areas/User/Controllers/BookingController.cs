@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 namespace Cental.WebUI.Areas.User.Controllers
 {
     [Area("User")]
-    public class BookingController(IBookingService bookingService, IUserService userService, IMapper mapper) : Controller
+    public class BookingController(IBookingService bookingService, IUserService userService) : Controller
     {
         protected AppUser? currentUser;
 
@@ -40,9 +40,7 @@ namespace Cental.WebUI.Areas.User.Controllers
 
         public IActionResult CancelBooking(int id)
         {
-            var booking = bookingService.TGetById(id);
-            booking.Status = "Kullanıcı tarafından iptal edildi";
-            bookingService.TUpdate(mapper.Map<UpdateBookingDto>(booking));
+            bookingService.TCancelByUser(id);
             return RedirectToAction("Index");
         }
 
