@@ -1,0 +1,59 @@
+﻿@model List<ResultBookingDto>
+
+@{
+    ViewData["Title"] = "Kiralama Taleplerim";
+    Layout = "~/Areas/User/Views/UserLayout/Index.cshtml";
+}
+
+@{
+    int count = 0;
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Teslim Alma Lokasyonu</th>
+        <th>Teslim Etme Lokasyonu</th>
+        <th>Teslim Alma Tarihi</th>
+        <th>Teslim Etme Tarihi</th>
+        <th>İşlemler</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.PickupLocation</td>
+            <td>@item.DropoffLocation</td>
+            <td>@item.PickupDate</td>
+            <td>@item.DropoffDate</td>
+            <td>
+                <button onclick="cancelBooking(@item.BookingId)" class="btn btn-danger">İptal Et</button>
+            </td>
+        </tr>
+    }
+</table>
+
+
+<script>
+    function cancelBooking(id)
+    {
+        Swal.fire(
+        {
+            title: "İptal etmek istedğinize emin misiniz?",
+            text: "Bu işlemi geri alamazsınız!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Evet, iptal et",
+            cancelButtonText: "Hayır, iptal etme"
+        }).then((result) =>
+        {
+            if (result.isConfirmed)
+            {
+                window.location.href = "/User/Booking/CancelBooking/" + id;
+            };
+        });
+    }
+</script>

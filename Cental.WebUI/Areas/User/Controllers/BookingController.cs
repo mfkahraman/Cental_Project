@@ -1,44 +1,50 @@
-﻿using Cental.BusinessLayer.Abstract;
+﻿using AutoMapper;
+using Cental.BusinessLayer.Abstract;
 using Cental.DtoLayer.BookingDtos;
 using Cental.EntityLayer.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace Cental.WebUI.Areas.User.Controllers
 {
     [Area("User")]
-    [AllowAnonymous]
-    public class BookingController(IBookingService bookingService, UserManager<AppUser> userManager) : Controller
+    public class BookingController(IBookingService bookingService, IUserService userService, IMapper mapper) : Controller
     {
+        protected AppUser? currentUser;
+
+        public override async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                currentUser = await userService.GetCurrentUserAsync(User);
+
+                // If the user exists in Identity but not in the database
+                if (currentUser == null)
+                {
+                    context.Result = RedirectToAction("Index", "Login", new { area = "" });
+                    return;
+                }
+            }
+
+            await next();
+        }
+
         public IActionResult Index()
         {
-            return View();
+            var bookings = bookingService.TGetAll().Where(x=> x.UserId == currentUser.Id).ToList();
+            return View(bookings);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateBooking(CreateBookingDto dto)
+
+        public IActionResult CancelBooking(int id)
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return Json(new { success = false, message = "Kiralama talebi oluşturmak için giriş yapmalısınız. Sizi giriş sayfasına yönlendiriyorum." });
-            }
-
-            var user = await userManager.FindByNameAsync(User.Identity.Name);
-            if (user == null)
-            {
-                return RedirectToAction("Index", "Login", new { area = "" });
-            }
-
-            dto.UserId = user.Id;
-            dto.Status = "Onay Bekliyor";
-            dto.IsCancel = false;
-            bookingService.TCreate(dto);
-
-            return Json(new { success = true, message = "Kiralama talebiniz başarıyla oluşturuldu!" });
+            var booking = bookingService.TGetById(id);
+            booking.Status = "Kullanıcı tarafından iptal edildi";
+            bookingService.TUpdate(mapper.Map<UpdateBookingDto>(booking));
+            return RedirectToAction("Index");
         }
-
-
 
 
     }

@@ -33,6 +33,9 @@ namespace Cental.BusinessLayer.Extensions
             services.AddScoped<IBookingService, BookingManager>();
             services.AddScoped<IBookingDal, EfBookingDal>();
 
+            services.AddScoped<IUserService, UserService>();
+
+
             services.AddScoped<IImageService, ImageService>();
 
         }

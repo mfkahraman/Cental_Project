@@ -3,7 +3,7 @@
 namespace Cental.WebUI.Areas.Manager.Controllers
 {
     [Area("Manager")]
-    public class ManagerLayout : Controller
+    public class ManagerLayoutController : Controller
     {
         public IActionResult Index()
         {
