@@ -1,9 +1,10 @@
-﻿@* Manager Booking Index *@
+﻿@* Admin Booking Index *@
 
 @model List<ResultBookingDto>
+
 @{
     ViewData["Title"] = "Kiralama Talepleri";
-    Layout = "~/Areas/Manager/Views/ManagerLayout/Index.cshtml";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
 }
 
 @{
@@ -59,7 +60,7 @@
         {
             if (result.isConfirmed)
             {
-                window.location.href = "/Manager/Booking/AcceptBooking/" + id;
+                window.location.href = "/Admin/Booking/AcceptBooking/" + id;
             };
         });
     }
@@ -80,10 +81,9 @@
         {
             if (result.isConfirmed)
             {
-                window.location.href = "/Manager/Booking/DeclineBooking/" + id;
+                window.location.href = "/Admin/Booking/DeclineBooking/" + id;
             };
         });
     }
 </script>
-
 

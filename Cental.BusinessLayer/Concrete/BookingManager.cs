@@ -13,6 +13,13 @@ namespace Cental.BusinessLayer.Concrete
 {
     class BookingManager( IBookingDal bookingDal) : IBookingService
     {
+        public void TAcceptBooking(int id)
+        {
+            var booking = bookingDal.GetById(id);
+            booking.Status = "Onaylandı";
+            bookingDal.Update(booking);
+        }
+
         public void TCancelByUser(int id)
         {
             var booking = bookingDal.GetById(id);
@@ -28,6 +35,13 @@ namespace Cental.BusinessLayer.Concrete
         {
             var entity = dto.Adapt<Booking>();
             bookingDal.Create(entity);
+        }
+
+        public void TDeclineBooking(int id)
+        {
+            var booking = bookingDal.GetById(id);
+            booking.Status = "Reddedildi";
+            bookingDal.Update(booking);
         }
 
         public void TDelete(int id)

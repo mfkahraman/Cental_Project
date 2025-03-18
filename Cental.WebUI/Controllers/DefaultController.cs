@@ -29,6 +29,7 @@ namespace Cental.WebUI.Controllers
         [AllowAnonymous]
         public IActionResult Index()
         {
+            ViewBag.IsAuthanticated = User.Identity.IsAuthenticated;
             return View();
         }
 

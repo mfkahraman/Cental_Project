@@ -4,10 +4,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace Cental.WebUI.Areas.Manager.Controllers
+namespace Cental.WebUI.Areas.Admin.Controllers
 {
-    [Area("Manager")]
-    [Authorize(Roles = "Manager")]
+    [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class BookingController(IBookingService bookingService, IUserService userService) : Controller
     {
         protected AppUser? currentUser;
