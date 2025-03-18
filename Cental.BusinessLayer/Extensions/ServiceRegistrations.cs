@@ -2,6 +2,7 @@
 using Cental.BusinessLayer.Concrete;
 using Cental.DataAccessLayer.Abstract;
 using Cental.DataAccessLayer.Concrete;
+using Cental.EntityLayer.Entities;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,10 @@ namespace Cental.BusinessLayer.Extensions
             services.AddScoped<IUserSocialDal, EfUserSocialDal>();
 
             services.AddScoped<IBookingService, BookingManager>();
-            services.AddScoped<IBookingDal, EfBookingDal>();
+            services.AddScoped<IBookingDal, EfBookingDal>();            
+            
+            services.AddScoped<IFeatureService, FeatureService>();
+            services.AddScoped<IFeatureDal, EfFeatureDal>();
 
             services.AddScoped<IUserService, UserService>();
 
