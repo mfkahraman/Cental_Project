@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cental.DtoLayer.FeatureDtos
 {
-    public class ResultFeatureDto
+    public class ResultServiceDto
     {
         public int FeatureId { get; set; }
         public string Title { get; set; }

@@ -24,16 +24,16 @@ namespace Cental.BusinessLayer.Concrete
             featureDal.Delete(id);
         }
 
-        public List<ResultFeatureDto> TGetAll()
+        public List<ResultServiceDto> TGetAll()
         {
             var features = featureDal.GetAll();
-            return mapper.Map<List<ResultFeatureDto>>(features);
+            return mapper.Map<List<ResultServiceDto>>(features);
         }
 
-        public ResultFeatureDto TGetById(int id)
+        public ResultServiceDto TGetById(int id)
         {
             var feature = featureDal.GetById(id);
-            return mapper.Map<ResultFeatureDto>(feature);
+            return mapper.Map<ResultServiceDto>(feature);
         }
 
         public void TUpdate(UpdateFeatureDto dto)

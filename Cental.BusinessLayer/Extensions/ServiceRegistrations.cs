@@ -37,6 +37,9 @@ namespace Cental.BusinessLayer.Extensions
             services.AddScoped<IFeatureService, FeatureService>();
             services.AddScoped<IFeatureDal, EfFeatureDal>();
 
+            services.AddScoped<IServiceService, ServiceManager>();
+            services.AddScoped<IServiceDal, EfServiceDal>();
+
             services.AddScoped<IUserService, UserService>();
 
 

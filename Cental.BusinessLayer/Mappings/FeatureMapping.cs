@@ -13,7 +13,7 @@ namespace Cental.BusinessLayer.Mappings
     {
         public FeatureMapping()
         {
-            CreateMap<Feature, ResultFeatureDto>();
+            CreateMap<Feature, ResultServiceDto>();
             CreateMap<Feature, CreateFeatureDto>().ReverseMap();
             CreateMap<Feature, UpdateFeatureDto>().ReverseMap();
         }

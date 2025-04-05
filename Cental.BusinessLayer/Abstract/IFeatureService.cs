@@ -10,8 +10,8 @@ namespace Cental.BusinessLayer.Abstract
 {
     public interface IFeatureService
     {
-        List<ResultFeatureDto> TGetAll();
-        ResultFeatureDto TGetById(int id);
+        List<ResultServiceDto> TGetAll();
+        ResultServiceDto TGetById(int id);
         void TDelete(int id);
         void TCreate(CreateFeatureDto dto);
         void TUpdate(UpdateFeatureDto dto);

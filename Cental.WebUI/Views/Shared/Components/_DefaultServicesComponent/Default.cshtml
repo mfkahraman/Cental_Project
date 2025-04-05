@@ -1,0 +1,72 @@
+﻿@model List<Cental.DtoLayer.ServiceDtos.ResultServiceDto>
+
+@*
+    Default Services Component
+*@
+
+<div class="container-fluid service py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+            <h1 class="display-5 text-capitalize mb-3">Renteks <span class="text-primary">Hizmetleri</span></h1>
+            <p class="mb-0">
+                Renteks, sunduğu çeşitli hizmetlerle araç kiralama deneyiminizi kolaylaştırır. İster şehir içinde ister şehirler arası, ihtiyacınıza uygun çözümlerimizle her zaman yanınızdayız.
+            </p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item p-4">
+                    <div class="service-icon mb-4">
+                        <i class="@Model[0].IconUrl"></i>
+                    </div>
+                    <h5 class="mb-3">@Model[0].Title</h5>
+                    <p class="mb-0">@Model[0].Description</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item p-4">
+                    <div class="service-icon mb-4">
+                        <i class="@Model[1].IconUrl"></i>
+                    </div>
+                    <h5 class="mb-3">@Model[1].Title</h5>
+                    <p class="mb-0">@Model[1].Description</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="service-item p-4">
+                    <div class="service-icon mb-4">
+                        <i class="@Model[2].IconUrl"></i>
+                    </div>
+                    <h5 class="mb-3">@Model[2].Title</h5>
+                    <p class="mb-0">@Model[2].Description</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item p-4">
+                    <div class="service-icon mb-4">
+                        <i class="@Model[3].IconUrl"></i>
+                    </div>
+                    <h5 class="mb-3">@Model[3].Title</h5>
+                    <p class="mb-0">@Model[3].Description</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="service-item p-4">
+                    <div class="service-icon mb-4">
+                        <i class="@Model[4].IconUrl"></i>
+                    </div>
+                    <h5 class="mb-3">@Model[4].Title</h5>
+                    <p class="mb-0">@Model[4].Description</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="service-item p-4">
+                    <div class="service-icon mb-4">
+                        <i class="@Model[5].IconUrl"></i>
+                    </div>
+                    <h5 class="mb-3">@Model[5].Title</h5>
+                    <p class="mb-0">@Model[5].Description</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
