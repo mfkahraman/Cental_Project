@@ -1,4 +1,5 @@
 ﻿using Cental.DtoLayer.BrandDtos;
+using Cental.DtoLayer.ReviewDtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace Cental.DtoLayer.CarDtos
         public int BrandId { get; set; }
 
         public ResultBrandDto Brand { get; set; }
+        public List<ResultReviewDto>? Reviews { get; set; }
 
     }
 }
