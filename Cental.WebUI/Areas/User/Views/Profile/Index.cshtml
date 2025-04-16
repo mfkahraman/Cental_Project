@@ -1,0 +1,56 @@
+﻿@model Cental.DtoLayer.UserDtos.UpdateUserDto
+@{
+    ViewData["Title"] = "Profil Yönetimi";
+    Layout = "~/Areas/User/Views/UserLayout/Index.cshtml";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Profil Bilgilerim</h2>
+
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-success">@ViewBag.Message</div>
+    }
+
+    <form method="post" enctype="multipart/form-data">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label class="form-label">Ad</label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Soyad</label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Email</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Telefon</label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Profil Fotoğrafı</label>
+                <input type="file" name="ProfileImage" class="form-control" />
+            </div>
+
+            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+            {
+                <div class="col-md-6">
+                    <label class="form-label d-block">Mevcut Fotoğraf</label>
+                    <img src="@Model.ImageUrl" class="img-thumbnail" style="max-height:150px;" />
+                </div>
+            }
+
+            <div class="col-12 text-end">
+                <button class="btn btn-primary mt-3 px-4" type="submit">Güncelle</button>
+            </div>
+        </div>
+    </form>
+</div>

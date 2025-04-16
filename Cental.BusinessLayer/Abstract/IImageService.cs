@@ -14,6 +14,7 @@ namespace Cental.BusinessLayer.Abstract
         /// </summary>
         /// <param name="file"></param>
         /// <returns> Returns a strings value for the model's ImageUrl property </returns>
-        Task<string> SaveImageAsync(IFormFile file);
+        Task<string> SaveImageAsync(IFormFile file, string folder);  // returns URL string
+        Task<bool> DeleteImageAsync(string imageUrl);
     }
 }

@@ -15,4 +15,9 @@ public class UserService(UserManager<AppUser> userManager) : IUserService
 
         return null;
     }
+
+    public async Task UpdateAsync(AppUser user)
+    {
+        await userManager.UpdateAsync(user);
+    }
 }

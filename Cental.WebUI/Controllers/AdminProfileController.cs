@@ -32,7 +32,7 @@ namespace Cental.WebUI.Controllers
                 {
                     try
                     {
-                        model.ImageUrl = await imageService.SaveImageAsync(model.ImageFile);
+                        model.ImageUrl = await imageService.SaveImageAsync(model.ImageFile, "adminImages");
                     }
                     catch (Exception ex)
                     {

@@ -11,13 +11,13 @@ namespace Cental.WebUI.ViewComponents.Default
         public async Task<IViewComponentResult> InvokeAsync()
         {
             int userCount = await userManager.Users.CountAsync();
-            ViewBag.UserCount = 198 * userCount;
+            ViewBag.UserCount = 256 * userCount;
             int carCount = carService.TGetAll().Count();
             ViewBag.CarCount = 28 * carCount;
             int carCenterCount = bookingService.TGetAll().Where(x => x.IsCancel == false).Count();
             ViewBag.CarCenterCount = 27 * carCenterCount;
             int brandCount = brandService.TGetAll().Count();
-            ViewBag.BrandCount = 9 * brandCount;
+            ViewBag.BrandCount = 3 * brandCount;
             return View();
         }
     }

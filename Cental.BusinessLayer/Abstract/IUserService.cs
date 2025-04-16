@@ -11,5 +11,6 @@ namespace Cental.BusinessLayer.Abstract
     public interface IUserService
     {
         public Task<AppUser> GetCurrentUserAsync(ClaimsPrincipal user);
+        Task UpdateAsync(AppUser user);
     }
 }

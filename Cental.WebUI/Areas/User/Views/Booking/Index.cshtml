@@ -30,7 +30,7 @@
             <td>@item.DropoffDate.ToString("dd MMMM yyyy HH:00")</td>
             <td>@item.Status</td>
             <td>
-                @if (item.IsCancel == false)
+                @if (item.IsCancel == false && item.Status != "Reddedildi")
                 {
                     <button onclick="cancelBooking(@item.BookingId)" class="btn btn-danger">İptal Et</button>
                 }

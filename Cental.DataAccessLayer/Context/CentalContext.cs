@@ -29,6 +29,7 @@ namespace Cental.DataAccessLayer.Context
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<UserSocial> UserSocials { get; set; }
         public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
         //Because we inheriting from IdentityDbContext, we dont need to add related Dbsets here
     }
