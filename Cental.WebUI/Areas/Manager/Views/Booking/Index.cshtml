@@ -13,6 +13,8 @@
 <table class="table table-bordered">
     <tr>
         <th>#</th>
+        <th>Talep Sahibi</th>
+        <th>Talep Edilen Araç</th>
         <th>Teslim Alma Lokasyonu</th>
         <th>Teslim Etme Lokasyonu</th>
         <th>Teslim Alma Tarihi</th>
@@ -25,13 +27,15 @@
         count++;
         <tr>
             <td>@count</td>
+            <td>@item.User.FirstName @item.User.LastName</td>
+            <td>@item.Car.ModelName</td>
             <td>@item.PickupLocation</td>
             <td>@item.DropoffLocation</td>
             <td>@item.PickupDate.ToString("dd MMMM yyyy HH:00")</td>
             <td>@item.DropoffDate.ToString("dd MMMM yyyy HH:00")</td>
             <td>@item.Status</td>
             <td>
-                @if (item.IsCancel == false)
+                @if (item.IsCancel == false && item.Status == "Onay Bekliyor")
                 {
                     <button onclick="acceptBooking(@item.BookingId)" class="btn btn-success">Onayla</button>
                     <button onclick="cancelBooking(@item.BookingId)" class="btn btn-danger">Reddet</button>

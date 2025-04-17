@@ -48,10 +48,10 @@
 
                 <div class="">
                     <div class="main-menu-header">
-                        <img class="img-radius" src="managerimageurl" alt="User-Profile-Image">
+                        @* <img class="img-radius" src="managerimageurl" alt="User-Profile-Image"> *@
                         <div class="user-details">
-                            <span>Manager Name Surname</span>
-                            <div id="more-details">Admin<i class="fa fa-chevron-down m-l-5"></i></div>
+                            @* <span>Manager Name Surname</span> *@
+                            <div id="more-details">Manager<i class="fa fa-chevron-down m-l-5"></i></div>
                         </div>
                     </div>
                     <div class="collapse" id="nav-user-link">
@@ -63,17 +63,40 @@
                     </div>
                 </div>
 
-                <ul class="nav pcoded-inner-navbar ">
+                <ul class="nav pcoded-inner-navbar">
                     <li class="nav-item pcoded-menu-caption">
                         <label>Menü</label>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+                        <a href="/Default/Index" class="nav-link">
+                            <span class="pcoded-micon"><i class="feather icon-globe"></i></span>
+                            <span class="pcoded-mtext">Siteye Git</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/Manager/Car/Index" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Araçlar</span></a>
+                        <a href="/Manager/Profile/Index" class="nav-link">
+                            <span class="pcoded-micon"><i class="feather icon-user"></i></span>
+                            <span class="pcoded-mtext">Profil Bilgilerim</span>
+                        </a>
                     </li>
-
+                    <li class="nav-item">
+                        <a href="/Manager/MySocial/Index" class="nav-link">
+                            <span class="pcoded-micon"><i class="feather icon-share-2"></i></span>
+                            <span class="pcoded-mtext">Sosyal Medyalarım</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Manager/Booking/Index" class="nav-link">
+                            <span class="pcoded-micon"><i class="feather icon-clipboard"></i></span>
+                            <span class="pcoded-mtext">Bekleyen Talepler</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Login/Logout" class="nav-link">
+                            <span class="pcoded-micon"><i class="feather icon-log-out"></i></span>
+                            <span class="pcoded-mtext">Çıkış Yap</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -304,52 +327,7 @@
         </div>
     </div>
     <!-- [ Main Content ] end -->
-    <!-- Warning Section start -->
-    <!-- Older IE warning message -->
-    <!--[if lt IE 11]>
-        <div class="ie-warning">
-            <h1>Warning!!</h1>
-            <p>You are using an outdated version of Internet Explorer, please upgrade
-               <br/>to any of the following web browsers to access this website.
-            </p>
-            <div class="iew-container">
-                <ul class="iew-download">
-                    <li>
-                        <a href="http://www.google.com/chrome/">
-                            <img src="assets/images/browser/chrome.png" alt="Chrome">
-                            <div>Chrome</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.mozilla.org/en-US/firefox/new/">
-                            <img src="assets/images/browser/firefox.png" alt="Firefox">
-                            <div>Firefox</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.opera.com">
-                            <img src="assets/images/browser/opera.png" alt="Opera">
-                            <div>Opera</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.apple.com/safari/">
-                            <img src="assets/images/browser/safari.png" alt="Safari">
-                            <div>Safari</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                            <img src="assets/images/browser/ie.png" alt="">
-                            <div>IE (11 & above)</div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <p>Sorry for the inconvenience!</p>
-        </div>
-    <![endif]-->
-    <!-- Warning Section Ends -->
+
     <!-- Required Js -->
     <script src="~/flat-able-admin/dist/assets/js/vendor-all.min.js"></script>
     <script src="~/flat-able-admin/dist/assets/js/plugins/bootstrap.min.js"></script>

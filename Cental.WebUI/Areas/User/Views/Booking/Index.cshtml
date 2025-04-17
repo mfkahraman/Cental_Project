@@ -12,22 +12,30 @@
 <table class="table table-bordered">
     <tr>
         <th>#</th>
+        <th>Talep Edilen Araç</th>
         <th>Teslim Alma Lokasyonu</th>
         <th>Teslim Etme Lokasyonu</th>
         <th>Teslim Alma Tarihi</th>
         <th>Teslim Etme Tarihi</th>
+        <th>Toplam Tutar</th>
         <th>Durumu</th>
         <th>İşlemler</th>
     </tr>
     @foreach (var item in Model)
     {
         count++;
+
+        var totalDays = (item.DropoffDate - item.PickupDate).Days;
+        var totalPrice = totalDays * item.Car.Price;
+
         <tr>
             <td>@count</td>
+            <td>@item.Car.ModelName</td>
             <td>@item.PickupLocation</td>
             <td>@item.DropoffLocation</td>
             <td>@item.PickupDate.ToString("dd MMMM yyyy HH:00")</td>
             <td>@item.DropoffDate.ToString("dd MMMM yyyy HH:00")</td>
+            <td>@totalPrice ₺</td>
             <td>@item.Status</td>
             <td>
                 @if (item.IsCancel == false && item.Status != "Reddedildi")
