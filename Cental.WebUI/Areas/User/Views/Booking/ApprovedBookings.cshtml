@@ -1,0 +1,48 @@
+﻿@model List<ResultBookingDto>
+@{
+    ViewData["Title"] = "Onaylanmış Taleplerim";
+    Layout = "~/Areas/User/Views/UserLayout/Index.cshtml";
+    int count = 0;
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Teslim Alma Lokasyonu</th>
+            <th>Teslim Etme Lokasyonu</th>
+            <th>Teslim Alma Tarihi</th>
+            <th>Teslim Etme Tarihi</th>
+            <th>Durumu</th>
+            <th>Değerlendir</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <td>@count</td>
+                <td>@item.PickupLocation</td>
+                <td>@item.DropoffLocation</td>
+                <td>@item.PickupDate.ToString("dd MMMM yyyy HH:00")</td>
+                <td>@item.DropoffDate.ToString("dd MMMM yyyy HH:00")</td>
+                <td>@item.Status</td>
+                <td>
+                    <form method="post" asp-action="AddReview" asp-controller="Booking" asp-area="User" class="d-flex">
+                        <input type="hidden" name="CarId" value="@item.CarId" />
+                        <select name="Rating" class="form-select me-2" style="width: 100px;" required>
+                            <option disabled selected>Puan</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <button type="submit" class="btn btn-sm btn-primary">Değerlendir</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

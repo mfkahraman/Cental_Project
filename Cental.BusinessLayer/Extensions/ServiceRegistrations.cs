@@ -41,7 +41,10 @@ namespace Cental.BusinessLayer.Extensions
             services.AddScoped<IServiceDal, EfServiceDal>();          
             
             services.AddScoped<IMessageService, MessageService>();
-            services.AddScoped<IMessageDal, EfMessageDal>();
+            services.AddScoped<IMessageDal, EfMessageDal>();   
+            
+            services.AddScoped<IReviewService, ReviewService>();
+            services.AddScoped<IReviewDal, EfReviewDal>();
 
             services.AddScoped<IUserService, UserService>();
 
