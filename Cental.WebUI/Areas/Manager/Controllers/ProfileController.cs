@@ -1,12 +1,14 @@
 ﻿using Cental.BusinessLayer.Abstract;
 using Cental.DtoLayer.UserDtos;
 using Cental.EntityLayer.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace Cental.WebUI.Areas.Manager.Controllers
 {
     [Area("Manager")]
+    [Authorize(Roles = "Manager")]
     public class ProfileController(IUserService userService, IImageService imageService) : Controller
     {
         protected AppUser? currentUser;

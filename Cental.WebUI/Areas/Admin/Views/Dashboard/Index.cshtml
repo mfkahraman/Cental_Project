@@ -1,0 +1,311 @@
+﻿@{
+    int userCount = ViewBag.UserCount * 12429;
+    int carCount = ViewBag.CarCount * 424;
+    int brandCount = ViewBag.BrandCount * 123;
+    int bookingCount = ViewBag.BookingCount *712;
+    int reviewCount = ViewBag.ReviewCount * 121;
+    int messageCount = ViewBag.MessageCount * 523;
+}               
+                
+                
+<!DOCTYPE html> 
+<html lang="en">
+
+<head>
+    <title>Dashboard</title>
+    <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 11]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="">
+    <meta name="author" content="Phoenixcoded" />
+    <!-- Favicon icon -->
+    <link rel="icon" href="~/flat-able-admin/dist/assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- vendor css -->
+    <link rel="stylesheet" href="~/flat-able-admin/dist/assets/css/style.css">
+
+
+
+</head>
+<body class="">
+    <!-- [ Pre-loader ] start -->
+    <div class="loader-bg">
+        <div class="loader-track">
+            <div class="loader-fill"></div>
+        </div>
+    </div>
+    <!-- [ Pre-loader ] End -->
+
+    <!-- [ navigation menu ] start -->
+    <nav class="pcoded-navbar  ">
+        <div class="navbar-wrapper  ">
+            <div class="navbar-content scroll-div ">
+
+                <div class="">
+                    <div class="main-menu-header">
+                        <img class="img-radius" src="~/flat-able-admin/dist/assets/images/user/avatar-2.jpg" alt="User-Profile-Image">
+                        <div class="user-details">
+                            <span>Furkan Kahraman</span>
+                        </div>
+                    </div>
+                </div>
+                <ul class="nav pcoded-inner-navbar ">
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- [ navigation menu ] end -->
+
+    <!-- [ Header ] start -->
+    <header class="navbar pcoded-header navbar-expand-lg navbar-light header-dark">
+
+
+        <div class="m-header">
+            <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
+            <a href="#!" class="b-brand">
+                <!-- ========   change your logo hear   ============ -->
+                <img src="~/flat-able-admin/dist/assets/images/logo.png" alt="" class="logo">
+                <img src="~/flat-able-admin/dist/assets/images/logo-icon.png" alt="" class="logo-thumb">
+            </a>
+            <a href="#!" class="mob-toggler">
+                <i class="feather icon-more-vertical"></i>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+
+            </ul>
+        </div>
+
+
+    </header>
+    <!-- [ Header ] end -->
+
+    <!-- [ Main Content ] start -->
+    <div class="pcoded-main-container">
+        <div class="pcoded-content">
+            <!-- [ breadcrumb ] start -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-12">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Dashboard</h5>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="#!">Dashboard</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ breadcrumb ] end -->
+
+
+            <!-- [ Main Content ] start -->
+            <div class="row">
+                <!-- table card-1 start -->
+                <div class="col-md-12 col-xl-4">
+                    <div class="card flat-card">
+                        <div class="row-table">
+                            <div class="col-sm-6 card-body br">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <i class="icon feather icon-eye text-c-green mb-1 d-block"></i>
+                                    </div>
+                                    <div class="col-sm-8 text-md-center">
+                                        <h5>@userCount</h5>
+                                        <span>Ziyaretçi</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 card-body">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <i class="icon feather icon-music text-c-red mb-1 d-block"></i>
+                                    </div>
+                                    <div class="col-sm-8 text-md-center">
+                                        <h5>99%</h5>
+                                        <span>Memnuniyet</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-table">
+                            <div class="col-sm-6 card-body br">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <i class="icon feather icon-file-text text-c-blue mb-1 d-block"></i>
+                                    </div>
+                                    <div class="col-sm-8 text-md-center">
+                                        <h5>@bookingCount</h5>
+                                        <span>Kiralama Talebi</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 card-body">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <i class="icon feather icon-mail text-c-yellow mb-1 d-block"></i>
+                                    </div>
+                                    <div class="col-sm-8 text-md-center">
+                                        <h5>@messageCount</h5>
+                                        <span>Mesaj</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- widget primary card start -->
+                    <div class="card flat-card widget-primary-card">
+                        <div class="row-table">
+                            <div class="col-sm-3 card-body">
+                                <i class="feather icon-star-on"></i>
+                            </div>
+                            <div class="col-sm-9">
+                                <h4>@reviewCount</h4>
+                                <h6>Değerlendirme Yapıldı</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- widget primary card end -->
+                </div>
+                <!-- table card-1 end -->
+                <!-- table card-2 start -->
+                <div class="col-md-12 col-xl-4">
+                    <div class="card flat-card">
+                        <div class="row-table">
+                            <div class="col-sm-6 card-body br">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <i class="icon feather icon-share-2 text-c-blue mb-1 d-block"></i>
+                                    </div>
+                                    <div class="col-sm-8 text-md-center">
+                                        <h5>@carCount</h5>
+                                        <span>Paylaşım</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 card-body">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <i class="icon feather icon-wifi text-c-blue mb-1 d-block"></i>
+                                    </div>
+                                    <div class="col-sm-8 text-md-center">
+                                        <h5>@brandCount</h5>
+                                        <span>Bağlantı</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row-table">
+                            <div class="col-sm-6 card-body br">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <i class="icon feather icon-rotate-ccw text-c-blue mb-1 d-block"></i>
+                                    </div>
+                                    <div class="col-sm-8 text-md-center">
+                                        <h5>3550</h5>
+                                        <span>Geri Dönüş Alındı</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 card-body">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <i class="icon feather icon-shopping-cart text-c-blue mb-1 d-blockz"></i>
+                                    </div>
+                                    <div class="col-sm-8 text-md-center">
+                                        <h5>7</h5>
+                                        <span>Yeni Araç Siparişi</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- widget-success-card start -->
+                    <div class="card flat-card widget-purple-card">
+                        <div class="row-table">
+                            <div class="col-sm-3 card-body">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="col-sm-9">
+                                <h4>17</h4>
+                                <h6>Ödül Kazanıldı</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- widget-success-card end -->
+                </div>
+                <!-- table card-2 end -->
+                <!-- Widget primary-success card start -->
+                <div class="col-md-12 col-xl-4">
+                    <div class="card support-bar overflow-hidden">
+                        <div class="card-body pb-0">
+                            <h2 class="m-0">3527</h2>
+                            <span class="text-c-blue">Destek Talebi</span>
+                            <p class="mb-3 mt-3">Toplam Çözülen Destek Talepleri</p>
+                        </div>
+                        <div id="support-chart"></div>
+                        <div class="card-footer bg-primary text-white">
+                            <div class="row text-center">
+                                <div class="col">
+                                    <h4 class="m-0 text-white">10</h4>
+                                    <span>Açık</span>
+                                </div>
+                                <div class="col">
+                                    <h4 class="m-0 text-white">5</h4>
+                                    <span>Devam eden</span>
+                                </div>
+                                <div class="col">
+                                    <h4 class="m-0 text-white">3</h4>
+                                    <span>Çözüldü</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Widget primary-success card end -->
+
+                <!-- prject ,team member start -->
+                @await Component.InvokeAsync("_DashboardLastCarsComponent")
+                @await Component.InvokeAsync("_DashboardLastBookingsComponent")
+
+                <!-- prject ,team member start -->
+
+                <!-- seo start -->
+ 
+                <!-- seo end -->
+
+                <!-- Latest Customers start -->
+
+                <!-- Latest Customers end -->
+            </div>
+            <!-- [ Main Content ] end -->
+        </div>
+    </div>
+    <!-- [ Main Content ] end -->
+
+    <!-- Required Js -->
+    <script src="~/flat-able-admin/dist/assets/js/vendor-all.min.js"></script>
+    <script src="~/flat-able-admin/dist/assets/js/plugins/bootstrap.min.js"></script>
+    <script src="~/flat-able-admin/dist/assets/js/pcoded.min.js"></script>
+
+    <!-- Apex Chart -->
+    <script src="~/flat-able-admin/dist/assets/js/plugins/apexcharts.min.js"></script>
+
+
+    <!-- custom-chart js -->
+    <script src="~/flat-able-admin/dist/assets/js/pages/dashboard-main.js"></script>
+</body>
+
+</html>

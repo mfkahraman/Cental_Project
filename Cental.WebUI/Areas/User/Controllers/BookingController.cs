@@ -13,6 +13,7 @@ using Microsoft.Identity.Client;
 namespace Cental.WebUI.Areas.User.Controllers
 {
     [Area("User")]
+    [Authorize(Roles ="User")]
     public class BookingController(IBookingService bookingService, IUserService userService, IReviewService reviewService) : Controller
     {
         protected AppUser? currentUser;
