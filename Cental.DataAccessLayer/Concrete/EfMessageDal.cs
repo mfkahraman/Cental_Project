@@ -15,5 +15,15 @@ namespace Cental.DataAccessLayer.Concrete
         public EfMessageDal(CentalContext context) : base(context)
         {
         }
+
+        public void MarkAsRead(int id)
+        {
+            var message = _context.Messages.Find(id);
+            if (message != null)
+            {
+                message.IsRead = true;
+                _context.SaveChanges();
+            }
+        }
     }
 }

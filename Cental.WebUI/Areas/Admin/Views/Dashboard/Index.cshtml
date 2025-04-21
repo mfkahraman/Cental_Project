@@ -2,7 +2,7 @@
     int userCount = ViewBag.UserCount * 12429;
     int carCount = ViewBag.CarCount * 424;
     int brandCount = ViewBag.BrandCount * 123;
-    int bookingCount = ViewBag.BookingCount *712;
+    int bookingCount = ViewBag.BookingCount * 712;
     int reviewCount = ViewBag.ReviewCount * 121;
     int messageCount = ViewBag.MessageCount * 523;
 }               
@@ -45,23 +45,7 @@
     <!-- [ Pre-loader ] End -->
 
     <!-- [ navigation menu ] start -->
-    <nav class="pcoded-navbar  ">
-        <div class="navbar-wrapper  ">
-            <div class="navbar-content scroll-div ">
-
-                <div class="">
-                    <div class="main-menu-header">
-                        <img class="img-radius" src="~/flat-able-admin/dist/assets/images/user/avatar-2.jpg" alt="User-Profile-Image">
-                        <div class="user-details">
-                            <span>Furkan Kahraman</span>
-                        </div>
-                    </div>
-                </div>
-                <ul class="nav pcoded-inner-navbar ">
-                </ul>
-            </div>
-        </div>
-    </nav>
+    @await Component.InvokeAsync("_AdminLayoutSideBarComponent")
     <!-- [ navigation menu ] end -->
 
     <!-- [ Header ] start -->

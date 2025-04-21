@@ -36,5 +36,10 @@ namespace Cental.BusinessLayer.Concrete
             var item = messageDal.GetById(id);
             return mapper.Map<ResultMessageDto>(item);
         }
+
+        public void TMarkAsRead(int id)
+        {
+            messageDal.MarkAsRead(id);
+        }
     }
 }

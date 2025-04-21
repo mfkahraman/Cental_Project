@@ -15,5 +15,6 @@ namespace Cental.BusinessLayer.Abstract
         ResultMessageDto TGetById(int id);
         void TDelete(int id);
         void TCreate(CreateMessageDto dto);
+        void TMarkAsRead(int id);
     }
 }

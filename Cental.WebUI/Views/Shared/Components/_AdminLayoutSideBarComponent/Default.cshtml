@@ -3,9 +3,9 @@
     _AdminLayoutSideBarComponent
 *@
 
-<nav class="pcoded-navbar  ">
-    <div class="navbar-wrapper  ">
-        <div class="navbar-content scroll-div ">
+<nav class="pcoded-navbar">
+    <div class="navbar-wrapper">
+        <div class="navbar-content scroll-div">
 
             <div class="">
                 <div class="main-menu-header">
@@ -18,26 +18,79 @@
                 <div class="collapse" id="nav-user-link">
                     <ul class="list-unstyled">
                         <li class="list-group-item"><a href="/AdminProfile/Index"><i class="feather icon-user m-r-5"></i>Profil Bilgileri</a></li>
-                        <li class="list-group-item"><a href="/Default/Index"><i class="feather icon-settings m-r-5"></i>Siteye Git</a></li>
+                        <li class="list-group-item"><a href="/Default/Index"><i class="feather icon-globe m-r-5"></i>Siteye Git</a></li>
                         <li class="list-group-item"><a href="/Login/Logout"><i class="feather icon-log-out m-r-5"></i>Çıkış Yap</a></li>
                     </ul>
                 </div>
             </div>
 
-            <ul class="nav pcoded-inner-navbar ">
+            <ul class="nav pcoded-inner-navbar">
                 <li class="nav-item pcoded-menu-caption">
                     <label>Menü</label>
                 </li>
+
                 <li class="nav-item">
-                    <a href="#" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
-                </li>
-                <li class="nav-item">
-                    <a href="/AdminAbout/Index" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Hakkımızda</span></a>
-                </li>
-                <li class="nav-item">
-                    <a href="/AdminBanner/Index" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Öne Çıkan Alan</span></a>
+                    <a href="/Admin/Dashboard/Index" class="nav-link">
+                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                        <span class="pcoded-mtext">Dashboard</span>
+                    </a>
                 </li>
 
+                <li class="nav-item">
+                    <a href="/AdminProfile/Index" class="nav-link">
+                        <span class="pcoded-micon"><i class="feather icon-user-check"></i></span>
+                        <span class="pcoded-mtext">Profil Yönetimi</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/Admin/About/Index" class="nav-link">
+                        <span class="pcoded-micon"><i class="feather icon-info"></i></span>
+                        <span class="pcoded-mtext">Hakkında Yönetimi</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/AdminBanner/Index" class="nav-link">
+                        <span class="pcoded-micon"><i class="feather icon-image"></i></span>
+                        <span class="pcoded-mtext">Öne Çıkan Alan</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/AdminBrand/Index" class="nav-link">
+                        <span class="pcoded-micon"><i class="feather icon-award"></i></span>
+                        <span class="pcoded-mtext">Marka Yönetimi</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/AdminCar/Index" class="nav-link">
+                        <span class="pcoded-micon"><i class="feather icon-package"></i></span>
+                        <span class="pcoded-mtext">Araç Yönetimi</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/Admin/Booking/Index" class="nav-link">
+                        <span class="pcoded-micon"><i class="feather icon-calendar"></i></span>
+                        <span class="pcoded-mtext">Kiralama Talepleri</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/Admin/Message/Index" class="nav-link">
+                        <span class="pcoded-micon"><i class="feather icon-mail"></i></span>
+                        <span class="pcoded-mtext">Gelen Mesajlar</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/Login/Logout" class="nav-link">
+                        <span class="pcoded-micon"><i class="feather icon-log-out"></i></span>
+                        <span class="pcoded-mtext">Çıkış Yap</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

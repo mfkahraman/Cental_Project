@@ -39,12 +39,18 @@ namespace Cental.WebUI.Controllers
         [HttpPost]
         public IActionResult CreateBanner(CreateBannerDto model)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View(model);
             }
             var banner = _mapper.Map<Banner>(model);
             _bannerService.TCreate(banner);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult DeleteBanner(int id)
+        {
+            _bannerService.TDelete(id);
             return RedirectToAction("Index");
         }
     }

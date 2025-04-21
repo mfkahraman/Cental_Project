@@ -9,5 +9,6 @@ namespace Cental.DataAccessLayer.Abstract
 {
     public interface IMessageDal : IGenericDal<Message>
     {
+        public void MarkAsRead(int id);
     }
 }

@@ -1,0 +1,58 @@
+﻿@using Cental.DtoLayer.MessageDtos
+@model List<ResultMessageDto>
+
+@{
+    ViewData["Title"] = "Gelen Mesajlar";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Ad Soyad</th>
+            <th>Email</th>
+            <th>Konu</th>
+            <th>Mesaj</th>
+            <th>Tarih</th>
+            <th>Durum</th>
+            <th>İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var message in Model)
+        {
+            <tr class="@(message.IsRead ? "" : "table-warning")">
+                <td>@message.Name</td>
+                <td>@message.Email</td>
+                <td>@message.Subject</td>
+                <td>@message.MessageContent</td>
+                <td>@message.MessageDate.ToString("dd.MM.yyyy HH:mm")</td>
+                <td>
+                    @if (message.IsRead)
+                    {
+                        <span class="badge bg-success">Okundu</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">Okunmadı</span>
+                    }
+                </td>
+                <td>
+                    @if (!message.IsRead)
+                    {
+                        <a asp-action="MarkAsRead" asp-route-id="@message.MessageId" class="btn btn-sm btn-primary">
+                            Okundu Olarak İşaretle
+                        </a>
+                    }
+                    else
+                    {
+                        <span class="text-muted">-</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
