@@ -1,0 +1,62 @@
+﻿@using Cental.DtoLayer.CarDtos
+@using X.PagedList
+@model IPagedList<ResultCarDto>
+
+@{
+    ViewData["Title"] = "Arabalar";
+    Layout = "~/Areas/Admin/Views/AdminLayout/LayoutAdmin.cshtml";
+}
+
+<h3>Arabalar</h3>
+@{
+    int count = 0;
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Model Adı</th>
+        <th>Model Yılı</th>
+        <th>Kilometresi</th>
+        <th>Markası</th>
+        <th>Resim</th> 
+        <th>İşlemler</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Brand.BrandName</td>
+            <td>@item.ModelName</td>
+            <td>@item.Year</td>
+            <td>@item.Kilometer</td>
+            <td>
+                @if (!string.IsNullOrEmpty(item.ImageUrl))
+                {
+                    <img src="@item.ImageUrl" alt="Car Image" style="width: 100px; height: auto;" />                  }
+                else
+                {
+                    <span>No Image</span>
+                }
+            </td>
+            <td>
+                <a asp-action="DeleteCar" asp-route-id="@item.CarId" class="btn btn-danger">Sil</a> 
+                <a asp-action="UpdateCar" asp-route-id="@item.CarId" class="btn btn-info">Güncelle</a>
+            </td>
+        </tr>
+    }
+</table>
+
+<div style="text-align:center; margin-top: 20px;">
+    @for (int i = 1; i <= Model.PageCount; i++)
+    {
+        if (i == Model.PageNumber)
+        {
+            <span style="margin: 0 5px; padding: 5px 10px; background-color: #007bff; color: white; border-radius: 5px;">@i</span>
+        }
+        else
+        {
+            <a href="@Url.Action("Index", new { page = i })" style="margin: 0 5px; padding: 5px 10px; background-color: #f0f0f0; color: #333; text-decoration: none; border-radius: 5px;">@i</a>
+        }
+    }
+</div>
+
+<a asp-area="Admin" asp-action="CreateCar" asp-controller="Car" class="btn btn-primary">Yeni Araba Ekle</a>

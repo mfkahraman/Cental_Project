@@ -6,10 +6,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Cental.WebUI.Controllers
+namespace Cental.WebUI.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     [Authorize(Roles = "Admin")]
-    public class AdminProfileController(UserManager<AppUser> userManager, IImageService imageService) : Controller
+    public class ProfileController(UserManager<AppUser> userManager, IImageService imageService) : Controller
     {
         public async Task<IActionResult> Index()
         {
@@ -25,10 +26,10 @@ namespace Cental.WebUI.Controllers
         {
             var user = await userManager.FindByNameAsync(User.Identity.Name);
             var isPasswordTrue = await userManager.CheckPasswordAsync(user, model.CurrentPassword);
-           
-            if(isPasswordTrue)
+
+            if (isPasswordTrue)
             {
-                if(model.ImageFile != null)
+                if (model.ImageFile != null)
                 {
                     try
                     {
@@ -39,7 +40,7 @@ namespace Cental.WebUI.Controllers
                         ModelState.AddModelError("", ex.Message);
                         return View(model);
                     }
-                    
+
                 }
 
                 user.Email = model.Email;
@@ -51,7 +52,7 @@ namespace Cental.WebUI.Controllers
                 var result = await userManager.UpdateAsync(user);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index","AdminAbout");
+                    return RedirectToAction("Index", "AdminAbout");
                 }
 
                 foreach (var error in result.Errors)

@@ -7,11 +7,16 @@ using Cental.WebUI.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using X.PagedList.Extensions;
 
-namespace Cental.WebUI.Controllers
+namespace Cental.WebUI.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     [Authorize(Roles = "Admin")]
-    public class AdminCarController(ICarService _carService, IMapper _mapper, IBrandService _brandService) : Controller
+    public class CarController(ICarService _carService,
+                            IMapper _mapper,
+                               IBrandService _brandService,
+                               IImageService imageService) : Controller
     {
         private void GetValuesInDropDown()
         {
@@ -26,9 +31,9 @@ namespace Cental.WebUI.Controllers
                               }).ToList();
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int page = 1, int pageSize = 8)
         {
-            var values = _carService.TGetAll();
+            var values = _carService.TGetAll().ToPagedList(page, pageSize);
             return View(values);
         }
 
@@ -40,15 +45,31 @@ namespace Cental.WebUI.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateCar(CreateCarDto model)
+        public async Task<IActionResult> CreateCar(CreateCarDto model)
         {
             GetValuesInDropDown();
+
+            if (model.ImageFile != null)
+            {
+                var imagePath = await imageService.SaveImageAsync(model.ImageFile, "cars");
+                model.ImageUrl = imagePath;
+            }
 
             _carService.TCreate(model);
 
             return RedirectToAction("Index");
         }
-        
+
+        public IActionResult DeleteCar(int id)
+        {
+            var car = _carService.TGetById(id);
+            if (car != null)
+            {
+                _carService.TDelete(id);
+                return RedirectToAction("Index");
+            }
+            return NotFound();
+        }
 
     }
 }

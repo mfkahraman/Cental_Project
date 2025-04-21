@@ -1,59 +1,78 @@
-﻿@model CreateCarDto
+﻿@using Cental.DtoLayer.CarDtos
+@model CreateCarDto
 
 @{
     ViewData["Title"] = "Yeni Araba Oluştur";
-    Layout = "~/Views/AdminLayout/Layout.cshtml";
+    Layout = "~/Areas/Admin/Views/AdminLayout/LayoutAdmin.cshtml";
 }
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     <div class="row">
         <div class="col-lg-6">
             <label>Araba Modeli</label>
             <input type="text" asp-for="ModelName" class="form-control" />
-            <br />
-            <label>Araba Görseli</label>
-            <input type="text" asp-for="ImageUrl" class="form-control" />
-            <br />
-            <label>Model Yılı</label>
-            <input type="number" asp-for="Year" class="form-control" />
-            <br />
-            <label>Kiralama Bedeli</label>
-            <input type="number" asp-for="Price" class="form-control" />
-            <br />
-            <label>Koltuk Sayısı</label>
-            <input type="number" asp-for="SeatCount" class="form-control" />
+            <span asp-validation-for="ModelName" class="text-danger"></span>
             <br />
 
+            <label>Araba Görseli</label>
+            <input type="file" asp-for="ImageFile" class="form-control" />
+            <span asp-validation-for="ImageFile" class="text-danger"></span>
+            <br />
+
+            <label>Model Yılı</label>
+            <input type="number" asp-for="Year" class="form-control" />
+            <span asp-validation-for="Year" class="text-danger"></span>
+            <br />
+
+            <label>Kiralama Bedeli</label>
+            <input type="number" asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+            <br />
+
+            <label>Koltuk Sayısı</label>
+            <input type="number" asp-for="SeatCount" class="form-control" />
+            <span asp-validation-for="SeatCount" class="text-danger"></span>
+            <br />
         </div>
 
         <div class="col-lg-6">
             <label>Kilometre Bilgisi</label>
             <input type="number" asp-for="Kilometer" class="form-control" />
+            <span asp-validation-for="Kilometer" class="text-danger"></span>
             <br />
+
             <label>Marka</label>
             <select asp-items="@ViewBag.brands" asp-for="BrandId" class="form-control">
-                <option selected>Markayı Seçiniz</option>
+                <option selected disabled>Markayı Seçiniz</option>
             </select>
+            <span asp-validation-for="BrandId" class="text-danger"></span>
             <br />
+
             <label>Yakıt Türü</label>
             <select asp-items="@ViewBag.gasTypes" asp-for="GasType" class="form-control">
-                <option selected>Yakıt Türü Seçiniz</option>
+                <option selected disabled>Yakıt Türü Seçiniz</option>
             </select>
+            <span asp-validation-for="GasType" class="text-danger"></span>
             <br />
+
             <label>Vites Türü</label>
             <select asp-items="@ViewBag.gearTypes" asp-for="GearType" class="form-control">
-                <option selected>Vites Türü Seçiniz</option>
+                <option selected disabled>Vites Türü Seçiniz</option>
             </select>
+            <span asp-validation-for="GearType" class="text-danger"></span>
             <br />
+
             <label>Vites Özelliği</label>
             <select asp-items="@ViewBag.transmissions" asp-for="Transmission" class="form-control">
-                <option selected>Vites Özelliği Seçiniz</option>
+                <option selected disabled>Vites Özelliği Seçiniz</option>
             </select>
+            <span asp-validation-for="Transmission" class="text-danger"></span>
             <br />
         </div>
 
-        <button class="betn btn-outline-dark">Kaydet</button>
+        <div class="col-lg-12 text-center mt-4">
+            <button class="btn btn-outline-dark">Kaydet</button>
+        </div>
     </div>
-
-
 </form>
+

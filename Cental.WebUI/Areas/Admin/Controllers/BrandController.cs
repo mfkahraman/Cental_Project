@@ -2,17 +2,18 @@
 using Cental.EntityLayer.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using PagedList;
+using X.PagedList;
+using X.PagedList.Extensions;
 
-namespace Cental.WebUI.Controllers
+namespace Cental.WebUI.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     [Authorize(Roles = "Admin")]
-    public class AdminBrandController(IBrandService _brandService) : Controller
+    public class BrandController(IBrandService _brandService) : Controller
     {
-        public IActionResult Index(int page=1, int pageSize=3)
+        public IActionResult Index(int page = 1, int pageSize = 8)
         {
-            var brands = _brandService.TGetAll();
-            var values = new PagedList<Brand>(brands, page, pageSize);
+            var values = _brandService.TGetAll().ToPagedList(page, pageSize);
             return View(values);
         }
 

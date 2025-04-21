@@ -1,0 +1,48 @@
+﻿@using Cental.EntityLayer.Entities
+@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model IPagedList<Brand>
+
+@{
+    ViewData["Title"] = "Markalar";
+    Layout = "~/Areas/Admin/Views/AdminLayout/LayoutAdmin.cshtml";
+}
+
+<h3>Markalar</h3>
+@{
+    int count = 0;
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Marka</th>
+        <th>İşlemler</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.BrandName</td>
+            <td><a asp-action="DeleteBrand" asp-route-id="@item.BrandId" class="btn btn-danger">Sil</a> </td>
+        </tr>
+    }
+</table>
+
+<div style="text-align:center; margin-top: 20px;">
+    @for (int i = 1; i <= Model.PageCount; i++)
+    {
+        if (i == Model.PageNumber)
+        {
+            <span style="margin: 0 5px; padding: 5px 10px; background-color: #007bff; color: white; border-radius: 5px;">@i</span>
+        }
+        else
+        {
+            <a href="@Url.Action("Index", new { page = i })" style="margin: 0 5px; padding: 5px 10px; background-color: #f0f0f0; color: #333; text-decoration: none; border-radius: 5px;">@i</a>
+        }
+    }
+</div>
+
+
+<a asp-action="CreateBrand" asp-controller="Brand" asp-area="Admin" class="btn btn-primary">Yeni Marka Ekle</a>
