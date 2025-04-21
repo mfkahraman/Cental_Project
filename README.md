@@ -1,25 +1,36 @@
-🌟 Key Features:
+🌟 Key Features
 🔑 Role-Based Panels
- Different areas for Users, Managers, and Admins, each with its own panel for better control.
+Different areas for Users, Managers, and Admins, each with its own panel for better control.
+
 👥 User & Role Management
- I used Identity to handle login and roles, making sure the right people have access to the right parts of the website.
+I used Identity to handle login and roles, making sure the right people have access to the right parts of the website.
+
 📊 Data Management
 DTOs were used to keep the data separate and organized.
 AutoMapper & Mapster helped me efficiently map data objects.
+
 ⚡ Better User Experience
 I added SweetAlert popups for clear and friendly notifications.
 I used 📜 PagedList for easy pagination of large amounts of data.
-🔄 Asynchronous Programming
- I implemented asynchronous programming to improve performance by allowing multiple operations to run without blocking the user interface.
 
-🔧 Technologies & Tools Used:
+🔄 Asynchronous Programming
+I implemented asynchronous programming to improve performance by allowing multiple operations to run without blocking the user interface.
+
+🔧 Technologies & Tools Used
 💻 ASP.NET Core MVC
+
 🗃️ Entity Framework Core (Code-First)
+
 ✅ FluentValidation
+
 🎉 SweetAlert for notifications
+
 🔄 AutoMapper & Mapster for data mapping
+
 📑 PagedList for pagination
+
 🎨 HTML, CSS, JavaScript, Bootstrap
+
 ⚡ Asynchronous Programming for better performance
 
 ![1-Home](https://github.com/user-attachments/assets/f06241d5-7448-4e5c-905a-3b823d5e1b6e)
