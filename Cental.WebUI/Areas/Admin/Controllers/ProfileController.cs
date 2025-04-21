@@ -52,7 +52,7 @@ namespace Cental.WebUI.Areas.Admin.Controllers
                 var result = await userManager.UpdateAsync(user);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "AdminAbout");
+                    return RedirectToAction("Index", "Profile", new { area = "Admin" });
                 }
 
                 foreach (var error in result.Errors)
