@@ -1,4 +1,3 @@
- -Renteks, a Car Rental Website
 🌟 Key Features
 🔑 Role-Based Panels
 Different areas for Users, Managers, and Admins, each with its own panel for better control.
